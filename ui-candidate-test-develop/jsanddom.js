@@ -24,7 +24,7 @@
      function findDistinctValues(values) {
         var distinct = [];
 		for (var i = 0; i < values.length; i++){
-   			if (values[i] not in distinct){
+   			if (!(values[i] in distinct)){
       			distinct.push(values[i]);
 			}
 		}
@@ -137,3 +137,49 @@
      // to the div with an id of "foobar"
      // When the first link is clicked, all the checkboxes should be checked (i.e. check all)
      // When the second link is clicked, all the checkboxes should be unchecked (i.e. uncheck all)
+	 function addCB(){
+		for (var i = 0; i <=5; i++) {
+		var checkbox = document.createElement('input');
+		checkbox.type = "checkbox";
+		checkbox.name = 'name' + i;
+		checkbox.value = i;
+		checkbox.id = "id" + i;
+		checkbox.checked = false;
+		
+		console.log(i);
+		
+		var label = document.createElement('label')
+		label.htmlFor = "id";
+		label.appendChild(document.createTextNode(i));
+		
+		foobar.appendChild(checkbox);
+		foobar.appendChild(label);
+		}
+		
+		var selectAllLink = document.createElement('a');
+  		selectAllLink.setAttribute('href',"#foobar");
+ 		selectAllLink.innerText = "select all";
+		selectAllLink.setAttribute('onclick','checkAll(i)');
+  		foobar.appendChild(selectAllLink);
+		
+		var deselectAllLink = document.createElement('a');
+  		deselectAllLink.setAttribute('href',"#foobar");
+ 		deselectAllLink.innerText = "deselect all";
+		deselectAllLink.setAttribute('onclick','uncheckAll(i)');
+  		foobar.appendChild(deselectAllLink);
+	 }
+	 
+	 function checkAll(length) {
+		for (var i=0; i< length; i++){
+			var id = id + i
+			id.checked = true;	
+		}
+	 }
+	 
+	 function checkAll(length) {
+		for (var i=0; i< length; i++){
+			var id = id + i
+			id.checked = false;	
+		}
+	 }
+	 
