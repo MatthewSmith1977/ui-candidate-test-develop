@@ -24,8 +24,10 @@
      function findDistinctValues(values) {
         var distinct = [];
 		for (var i = 0; i < values.length; i++){
-   			if (!(values[i] in distinct)){
-      			distinct.push(values[i]);
+   			if (distinct.indexOf(values[i]) > -1){
+   				
+   			}else{
+                distinct.push(values[i]);
 			}
 		}
      	return distinct;
@@ -55,10 +57,11 @@
      // Write the function that will remove the values contained in fruitsToRemove from the array fruits.
      function removeFruits(fruits, fruitsToRemove) {
 		for (var i = 0; i < fruits.length; i++){
-   			if (fruits[i] in fruitsToRemove){
-      			fruits.remove(i);
-			}
+   			if (fruitsToRemove.indexOf(fruits[i]) > -1){
+      			fruits.splice(i,1);
+			}  
 		}
+       return fruits;
      }
 
      // Write a function to push either a simple value or an array of values onto a specified array.
@@ -86,9 +89,8 @@
 		 var total = 0;
 		 
 		 for(var i = 0; i < args.length; i++){
-			 total = total + args[i];
+			 total += args[i];
 		 }
-		 
 		 return total;
      }
 
@@ -100,6 +102,13 @@
      }
 
      // write an example of a javascript closure
+     function myName(name) {
+     	var text = 'My name is ' + name;
+     	var consoleName = function(){console.log(text);}
+     	consoleName();	
+     }
+     
+     myName('Matt');
 
      // define a json object that represents a collection of people.
      // each person should have the following properties
@@ -139,44 +148,42 @@
      // When the second link is clicked, all the checkboxes should be unchecked (i.e. uncheck all)
 	 function addCB(){
 		for (var i = 0; i <=5; i++) {
+			 var length = 0;
 		var checkbox = document.createElement('input');
 		checkbox.type = "checkbox";
 		checkbox.name = 'name' + i;
 		checkbox.value = i;
 		checkbox.id = "id" + i;
 		checkbox.checked = false;
-		
-		console.log(i);
-		
+				
 		var label = document.createElement('label')
 		label.htmlFor = "id";
 		label.appendChild(document.createTextNode(i));
 		
 		foobar.appendChild(checkbox);
 		foobar.appendChild(label);
+		
 		}
 		
 		var selectAllLink = document.createElement('a');
   		selectAllLink.setAttribute('href',"#foobar");
  		selectAllLink.innerText = "select all";
-		selectAllLink.setAttribute('onclick','checkAll(i)');
+		selectAllLink.setAttribute('onclick','checkAll()');
   		foobar.appendChild(selectAllLink);
 		
 		var deselectAllLink = document.createElement('a');
   		deselectAllLink.setAttribute('href',"#foobar");
  		deselectAllLink.innerText = "deselect all";
-		deselectAllLink.setAttribute('onclick','uncheckAll(i)');
+		deselectAllLink.setAttribute('onclick','console.log(foobar.checkbox)');
   		foobar.appendChild(deselectAllLink);
 	 }
 	 
-	 function checkAll(length) {
-		for (var i=0; i< length; i++){
-			var id = id + i
-			id.checked = true;	
+	 function checkAll() {
+		id1.checked=true;	
 		}
 	 }
 	 
-	 function checkAll(length) {
+	 function uncheckAll(length) {
 		for (var i=0; i< length; i++){
 			var id = id + i
 			id.checked = false;	

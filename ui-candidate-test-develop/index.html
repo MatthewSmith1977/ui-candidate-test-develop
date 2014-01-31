@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>New Web Project</title>
+    </head>
+    <script type="text/javascript">
+    	function picClick(imgNum) {
+    		var pics1 = document.getElementById("pic1");
+    		pics1.style.width = "100px";
+    		var pics2 = document.getElementById("pic2");
+    		pics2.style.width = "100px";
+    		var pics3 = document.getElementById("pic3");
+    		pics3.style.width = "100px";
+    		var pics4 = document.getElementById("pic4");
+    		pics4.style.width = "100px";
+    		var picNum = document.getElementById(imgNum);
+    		picNum.style.width = "200px";
+    	}
+    </script>
+    <style>
+    	body{background-color:#000000;}
+    	#left{float: left; height:400; width:250px; background-color:#333333;}
+    	#right{float:left; height:400; width:700px; background-color: #ffffff;}
+    	li {height:20px; padding: 5px; color:#ffffff;}
+    	li:hover{background-color: #666666; color: #ff0000;}
+    	#pic1{width:100px;}
+    	#pic2{width:100px;}
+    	#pic3{width:100px;}
+    	#pic4{width:100px;}
+    </style>
+    <body>
+        <div id = "left">
+        	<li>Item 1</li>
+        	<li>Item 2</li>
+        	<li>Item 3</li>
+        	<li>Item 4</li>
+        	<li>Item 5</li>
+        	<li>Item 6</li>
+        </div>
+        <div id="right">
+        	<span onclick="picClick('pic1')"><img id="pic1" src="http://1.bp.blogspot.com/_AHt1sHVtR-E/TUKsd_JRDxI/AAAAAAAAGnc/1MfK72F-3LA/s1600/smart-pulse-2.jpg" /></span>
+        	<span onclick="picClick('pic2')"><img id="pic2" src="http://1.bp.blogspot.com/_AHt1sHVtR-E/TUKsd_JRDxI/AAAAAAAAGnc/1MfK72F-3LA/s1600/smart-pulse-2.jpg" /></span>
+        	<span onclick="picClick('pic3')"><img id="pic3" src="http://1.bp.blogspot.com/_AHt1sHVtR-E/TUKsd_JRDxI/AAAAAAAAGnc/1MfK72F-3LA/s1600/smart-pulse-2.jpg" /></span>
+        	<span onclick="picClick('pic4')"><img id="pic4" src="http://1.bp.blogspot.com/_AHt1sHVtR-E/TUKsd_JRDxI/AAAAAAAAGnc/1MfK72F-3LA/s1600/smart-pulse-2.jpg" /></span>
+        </div>
+    </body>
+</html>
